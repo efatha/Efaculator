@@ -16,4 +16,31 @@ function setOperation(op) {
     previousNumber = currentNumber;
     currentNumber = '';
 }
-
+function calculate() {
+    let result;
+    const prev = parseFloat(previousNumber);
+    const current = parseFloat(currentNumber);
+    
+    if (isNaN(prev) || isNaN(current)) return;
+    
+    switch (operation) {
+        case '+':
+            result = prev + current;
+            break;
+        case '-':
+            result = prev - current;
+            break;
+        case '*':
+            result = prev * current;
+            break;
+        case '/':
+            result = prev / current;
+            break;
+        default:
+            return;
+    }
+    currentNumber = result;
+    operation = '';
+    previousNumber = '';
+    updateResult();
+}
