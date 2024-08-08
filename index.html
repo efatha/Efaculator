@@ -10,7 +10,7 @@
    <div class="container">
         <h1>Efaculator</h1>
         <input class="inp" type="text" id="result" readonly>
-        <br>
+        
         <nav class="efabuts">
             <div class="numbers">
             <div class="first">
@@ -21,16 +21,17 @@
                 <button class="diff" onclick="calculate()">=</button>
             </div>
               
-               <br>
+               
                 <div class="first">
                <button onclick="appendNumber('4')">4</button>
                <button onclick="appendNumber('5')">5</button>
                <button onclick="appendNumber('6')">6</button>
                <button class="diff" onclick="setOperation('-')">-</button>
+                
                 <button class="diff" onclick="setOperation('/')">/</button>
                 </div>
               
-               <br>
+               
                 <div class="first">
                <button onclick="appendNumber('7')">7</button>
                <button onclick="appendNumber('8')">8</button>
@@ -53,55 +54,38 @@
 
     <script>
         let currentInput = '';
-        let currentOperation = null;
-        let previousInput = '';
+        let equation = '';
 
         function appendNumber(number) {
             currentInput += number;
-            document.getElementById('result').value = currentInput;
+            document.getElementById('result').value = equation + currentInput;
         }
 
         function setOperation(operation) {
-            if (currentInput === '') return;
-            if (previousInput !== '') {
-                calculate();
-            }
-            currentOperation = operation;
-            previousInput = currentInput;
+            if (currentInput === '' && equation === '') return;
+            equation += currentInput + operation;
             currentInput = '';
+            document.getElementById('result').value = equation;
         }
 
         function calculate() {
-            if (currentOperation === null || currentInput === '') return;
-            let result;
-            const prev = parseFloat(previousInput);
-            const current = parseFloat(currentInput);
-            switch (currentOperation) {
-                case '+':
-                    result = prev + current;
-                    break;
-                case '-':
-                    result = prev - current;
-                    break;
-                case '*':
-                    result = prev * current;
-                    break;
-                case '/':
-                    result = prev / current;
-                    break;
-                default:
-                    return;
+            if (currentInput === '' && equation === '') return;
+            equation += currentInput;
+            try {
+                let result = eval(equation);
+                document.getElementById('result').value = result;
+                equation = result.toString();
+                currentInput = '';
+            } catch {
+                document.getElementById('result').value = 'Error';
+                equation = '';
+                currentInput = '';
             }
-            currentInput = result;
-            currentOperation = null;
-            previousInput = '';
-            document.getElementById('result').value = result;
         }
 
         function clearResult() {
             currentInput = '';
-            currentOperation = null;
-            previousInput = '';
+            equation = '';
             document.getElementById('result').value = '';
         }
     </script>
