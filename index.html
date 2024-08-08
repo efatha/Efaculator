@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Efaculator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
    <div>
     <div class="container">
         <h1>Efaculator</h1>
-        <input type="text" id="result" readonly>
+        <input class="inp" type="text" id="result" readonly>
         <br>
         <nav class="efabuts">
             <div class="numbers">
@@ -17,30 +18,31 @@
                  <button onclick="appendNumber('1')">1</button>
                  <button onclick="appendNumber('2')">2</button>
                  <button onclick="appendNumber('3')">3</button>
-                 <button onclick="setOperation('+')">+</button>
-                 <button onclick="setOperation('/')">/</button>
+                 <button class="diff" onclick="setOperation('+')">+</button>
+                 <button class="diff" onclick="setOperation('/')">/</button>
                </div>  
                <br>
                <div class="first">
                  <button onclick="appendNumber('4')">4</button>
                  <button onclick="appendNumber('5')">5</button>
                  <button onclick="appendNumber('6')">6</button>
-                 <button onclick="setOperation('-')">-</button>
-                 <button onclick="setOperation('*')">*</button>
+                 <button class="diff" onclick="setOperation('-')">-</button>
+                 <button class="diff" onclick="setOperation('*')">x</button>
                </div>      
                <br>
-               <button onclick="appendNumber('7')">7</button>
-               <button onclick="appendNumber('8')">8</button>
-               <button onclick="appendNumber('9')">9</button>
+               <div class="first">
+                 <button onclick="appendNumber('7')">7</button>
+                 <button onclick="appendNumber('8')">8</button>
+                 <button onclick="appendNumber('9')">9</button>
+               
+                 <button class="diff" onclick="calculate()">=</button>
+                 <button onclick="clearResult()" class="remov">C</button>
+                </div>
+            <div class="zero">
+              <button class="alone" onclick="appendNumber('.')">.</button>
+              <button class="alone" onclick="appendNumber('0')">0</button>
+              <button class="alone" onclick="appendNumber('00')">00</button>    
             </div>
-        <button onclick="calculate()">=</button>
-        <button onclick="clearResult()" class="remov">C</button>
-        <div class="zero">
-            <button class="alone" onclick="appendNumber('.')">.</button>
-            <button class="alone" onclick="appendNumber('0')">0</button>
-            <button class="alone" onclick="appendNumber('00')">00</button>    
-        </div>
-    
         </nav>
         <script>
                 console.log("This is the first Efatha's test on JavaScript");
