@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #b4b4b4;
+}
+.first{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.sec{
+  display: flex;
+  flex-direction: column;
+  
+
+}
+.container {
+  background-color: rgb(238, 238, 238);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    align-items: center;
+  
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 560px;
+    height: 40px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: right;
+    font-size: 1.2em;
+    
+}
+
+.efabuts {
+    display: flex;
+    
+    justify-content: center;
+    background-color: rgb(238, 238, 238);
+    width: 100%;
+}
+.remov{
+  background-color: brown;
+ 
+}
+.diff{
+  background-color: rgb(196, 196, 196);
+  
+}
+button {
+    width: 70px;
+    height: 70px;
+    margin: 5px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    background-color: #797979;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:active {
+    background-color: #003f7f;
+}
+.numbers{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.inp{
+  outline: none;
+  
+}
+.zero{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 63px;
+  margin-top: 20px;
+}
+
+@media only screen and (max-width:765px){
+  button {
+    width: 60px;
+    height: 60px;
+}
+
+input[type="text"] {
+  width: 520px;
+  height: 40px;
+  padding: 10px;
+  
+  
+}
+}

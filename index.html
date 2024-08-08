@@ -1,44 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Efaculator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efaculator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-   <div>
-    <div class="container">
-        <h1>Efaculator</h1>
-        <input type="text" id="result" readonly>
-        <br>
-        <nav class="efabuts">
-            <div class="numbers">
-               <button onclick="appendNumber('1')">1</button>
-               <button onclick="appendNumber('2')">2</button>
-               <button onclick="appendNumber('3')">3</button>
-               <button onclick="setOperation('+')">+</button>
-               <br>
-               <button onclick="appendNumber('4')">4</button>
-               <button onclick="appendNumber('5')">5</button>
-               <button onclick="appendNumber('6')">6</button>
-               <button onclick="setOperation('-')">-</button>
-               <br>
-               <button onclick="appendNumber('7')">7</button>
-               <button onclick="appendNumber('8')">8</button>
-               <button onclick="appendNumber('9')">9</button>
-               <button onclick="setOperation('*')">*</button>
+   <div class="container">
+        <h1>Efaculator</h1>
+        <input class="inp" type="text" id="result" readonly>
+        
+        <nav class="efabuts">
+            <div class="numbers">
+            <div class="first">
+                 <button onclick="appendNumber('1')">1</button>
+               <button onclick="appendNumber('2')">2</button>
+               <button onclick="appendNumber('3')">3</button>
+               <button class="diff" onclick="setOperation('+')">+</button>
+                <button class="diff" onclick="calculate()">=</button>
             </div>
-        <button onclick="appendNumber('0')">0</button>
-        <button onclick="calculate()">=</button>
-        <button onclick="clearResult()">C</button>
-        <button onclick="setOperation('/')">/</button>
-    
-        </nav>
-        <script>
-                console.log("This is the first Efatha's test on JavaScript");
-        </script>
-    </div>
-   </div>
-   <script src="efaculator.js"></script>
+              
+               
+                <div class="first">
+               <button onclick="appendNumber('4')">4</button>
+               <button onclick="appendNumber('5')">5</button>
+               <button onclick="appendNumber('6')">6</button>
+               <button class="diff" onclick="setOperation('-')">-</button>
+                
+                <button class="diff" onclick="setOperation('/')">/</button>
+                </div>
+              
+               
+                <div class="first">
+               <button onclick="appendNumber('7')">7</button>
+               <button onclick="appendNumber('8')">8</button>
+               <button onclick="appendNumber('9')">9</button>
+               <button class="diff" onclick="setOperation('*')">*</button>
+               <button onclick="clearResult()" class="remov">C</button>
+                </div>
+                <div class="zero">
+                    <button class="alone" onclick="appendNumber('.')">.</button>
+                    <button class="alone" onclick="appendNumber('0')">0</button>
+                    <button class="alone" onclick="appendNumber('00')">00</button>
+                  
+                </div>
+               
+                
+            </div>
+             
+        </nav>
+    </div>
+
+    <script>
+        let currentInput = '';
+        let equation = '';
+
+        function appendNumber(number) {
+            currentInput += number;
+            document.getElementById('result').value = equation + currentInput;
+        }
+
+        function setOperation(operation) {
+            if (currentInput === '' && equation === '') return;
+            equation += currentInput + operation;
+            currentInput = '';
+            document.getElementById('result').value = equation;
+        }
+
+        function calculate() {
+            if (currentInput === '' && equation === '') return;
+            equation += currentInput;
+            try {
+                let result = eval(equation);
+                document.getElementById('result').value = result;
+                equation = result.toString();
+                currentInput = '';
+            } catch {
+                document.getElementById('result').value = 'Error';
+                equation = '';
+                currentInput = '';
+            }
+        }
+
+        function clearResult() {
+            currentInput = '';
+            equation = '';
+            document.getElementById('result').value = '';
+        }
+    </script>
 </body>
 </html>
