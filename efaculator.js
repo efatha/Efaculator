@@ -44,3 +44,13 @@ function calculate() {
     previousNumber = '';
     updateResult();
 }
+function clearResult() {
+    currentNumber = '';
+    previousNumber = '';
+    operation = '';
+    updateResult();
+}
+
+function updateResult() {
+    document.getElementById('result').value = currentNumber;
+}
