@@ -9,33 +9,38 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   background-color: #b4b4b4;
 }
-.first{
+
+.first {
   display: flex;
   flex-direction: row;
 }
+
 .container {
   background-color: rgb(238, 238, 238);
-  padding: 20px;
+  padding: 5vw; /* Adjust padding based on viewport width */
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 5px 5px 0px rgba(0, 0, 0, 0.1);;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 5px 5px 0px rgba(0, 0, 0, 0.1);
   text-align: center;
+  width: 90vw; /* Allow the container to scale with the viewport */
+  max-width: 500px; /* Limit max width for larger screens */
 }
+
 h1 {
   margin-bottom: 20px;
 }
 
 input[type="text"] {
-  width: 460px;
+  width: 100%; /* Make input responsive */
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
   text-align: right;
-  font-size: 1.2em;  
+  font-size: 1.2em;
 }
 
 .efabuts {
@@ -44,14 +49,18 @@ input[type="text"] {
   justify-content: center;
   background-color: rgb(238, 238, 238);
 }
-.remov{
-  background: linear-gradient(180deg, #797979 , rgba(184, 51, 51, 2));
+
+.remov {
+  background: linear-gradient(180deg, #797979, rgba(184, 51, 51, 2));
 }
-.diff{
+
+.diff {
   background: linear-gradient(95deg, rgb(169, 165, 165), #685757);
 }
+
 button {
-  width: 50px;
+  width: 22vw; /* Use viewport width to ensure buttons scale */
+  max-width: 50px; /* Cap max width */
   height: 50px;
   margin: 5px;
   font-size: 1.2em;
@@ -63,46 +72,49 @@ button {
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
 button:hover {
   background-color: #0056b3;
-  background: linear-gradient(80deg, #0056b3 , rgb(155, 137, 137));
-
+  background: linear-gradient(80deg, #0056b3, rgb(155, 137, 137));
 }
 
 button:active {
   background-color: #003f7f;
 }
-.numbers{
+
+.numbers {
   display: flex;
   flex-direction: column;
 }
-.inp{
+
+.inp {
   outline: none;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
- }
-.zero{
+}
+
+.zero {
   display: flex;
   flex-direction: row;
   justify-content: start;
-  gap: 65px;
+  gap: 5vw; /* Adjust gap using viewport units */
   margin-top: 20px;
 }
+
 @media (max-width: 768px) {
   body {
     height: auto;
-    padding: 20px;
+    padding: 10px;
     align-items: flex-start;
     display: flex;
-    justify-content: center;  
-    height: 100vh;
-    padding: 20px;
+    justify-content: center;
   }
 
   .container {
     max-width: 100%;
-    padding: 15px;
-    width:100%;
+    padding: 10px;
+    margin-top: 0px;
   }
+
   input[type="text"] {
     font-size: 1rem;
   }
@@ -113,22 +125,17 @@ button:active {
     font-size: 1rem;
     padding: 10px;
   }
-  .alone {
-    flex: 1 1 30%;
-    margin: 3px;
-    width:40px;
-}
+
   .zero {
-    justify-content: space-between;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    gap: 100px;
+    gap: 5vw;
     margin-top: 20px;
+  }
 }
+
 @media (max-width: 480px) {
   button {
     width: 24%;
+    max-width: none;
   }
 
   .zero {
@@ -138,5 +145,4 @@ button:active {
   input[type="text"] {
     font-size: 0.9em;
   }
-}
 }
