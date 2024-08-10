@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: Arial, sans-serif;
   display: flex;
@@ -78,6 +84,59 @@ button:active {
   display: flex;
   flex-direction: row;
   justify-content: start;
-  gap: 63px;
+  gap: 65px;
   margin-top: 20px;
+}
+@media (max-width: 768px) {
+  body {
+    height: auto;
+    padding: 20px;
+    align-items: flex-start;
+    display: flex;
+    justify-content: center;  
+    height: 100vh;
+    padding: 20px;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 15px;
+    width:100%;
+  }
+  input[type="text"] {
+    font-size: 1rem;
+  }
+
+  button {
+    width: 22%;
+    max-width: none;
+    font-size: 1rem;
+    padding: 10px;
+  }
+  .alone {
+    flex: 1 1 30%;
+    margin: 3px;
+    width:40px;
+}
+  .zero {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 100px;
+    margin-top: 20px;
+}
+@media (max-width: 480px) {
+  button {
+    width: 24%;
+  }
+
+  .zero {
+    gap: 5px;
+  }
+
+  input[type="text"] {
+    font-size: 0.9em;
+  }
+}
 }
