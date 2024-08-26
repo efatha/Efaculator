@@ -41,3 +41,6 @@ To run this project locally, follow these steps:
 1. Open the `index.html` file in your web browser.
 2. Use the buttons to input numbers and select operations.
 3. The result will be displayed in the input
+
+## Visit the live demo on this project 
+click on this link [https://efatha.github.io/Efaculator](efatha.github.io/Efaculator)
